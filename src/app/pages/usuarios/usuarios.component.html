@@ -1,0 +1,100 @@
+<h1> Listado De Noticias </h1>
+<img src="m4a.jpg" alt="">
+
+<hr>
+
+
+<div class="row">
+    <div class="col tex-center">
+        <button routerLink="/usuario/nuevo" class="btn btn-success w-25">
+
+            <i class="fa fa-plus"></i>
+    
+            Agregar Noticia 
+        </button>
+
+    </div>
+
+
+    <hr>
+
+
+
+    <div class="form-goup tex-center">
+        <button routerLink="/imagenes/nueva" class="btn btn-info">
+    
+                <i class="fa fa-plus"></i>
+        
+                Agregar Imagen
+            </button>
+
+
+
+        <hr>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+<table *ngIf="!cargando && usuarios.length > 0" class="table table-striped table-dark mt-3 animated fadeIn faster">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre de la noticia</th>
+            <th scope="col">Noticia</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let usuario of usuarios; let i = index">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{usuario.nombre}}</td>
+            <td>{{usuario.noticia}}</td>
+            <td>{{usuario.tipo}}</td>
+            <td>{{usuario.fecha}}</td>
+            <td></td>
+
+            <td>
+                <button class="btn btn-info mr-1" [routerLink]="['/usuario',usuario.id]">
+                    <i class="fa fa-pen"></i>
+                </button>
+
+                <button class="btn btn-danger" (click)="borrarUsuario(usuario, i)">
+                    <i class="fa fa-trash"></i>
+                </button>
+
+
+            </td>
+
+
+
+        </tr>
+
+
+
+    </tbody>
+</table>
+<div *ngIf="!cargando && usuarios.length === 0" class="alert alert-warning text-center mt-3 animated fadeIn faster">
+    <h4 class="alert-heading">No hay Noticias</h4>
+    <p>
+        <i class="fa fa-exclamation fa-2x"></i>
+    </p>
+
+</div>
+
+<div *ngIf="cargando" class="alert alert-info text-center mt-3 animated fadeIn faster">
+    <h4 class="alert-heading">Cargando...</h4>
+    <p>
+        <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+    </p>
+
+    <p class="mb-0">
+        Please Wait
+    </p>
+</div>

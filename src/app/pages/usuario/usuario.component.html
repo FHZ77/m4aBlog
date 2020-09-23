@@ -1,0 +1,82 @@
+<h1>
+
+    Noticia <small>en desarrollo</small></h1>
+<hr>
+<div class="row text-right">
+    <div class="col">
+        <button class="btn btn-danger" routerLink="/usuarios">
+        <i class="fa fa-arrow-left"></i>
+        Regresar
+    </button>
+    </div>
+
+</div>
+<div class="row animated fadeIn faster">
+    <div class="col">
+
+        <form (ngSubmit)="guardar (f)" #f="ngForm">
+            <div class="form-group"></div>
+            <label>ID</label>
+            <input type="text" class="form-control" placeholder="Firebase ID" [(ngModel)]="usuario.id" name="id" disabled="disabled">
+            <small class="form-text text-muted">Este campo es autogenerado</small>
+
+            <div class="form-group"></div>
+            <label>Nombre</label>
+            <input type="text" class="form-control" placeholder="Nombre de la Noticia " [(ngModel)]="usuario.nombre" name="nombre" required>
+            <br>
+
+            <div class="form-group"></div>
+            <label>Fecha</label>
+            <input type="text" class="form-control" placeholder="Ingresar Fecha  Ej: 11/08/2020" [(ngModel)]="usuario.fecha" name="nombre" required>
+            <br>
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Tipo </label>
+
+                <select class="form-control" [(ngModel)]="usuario.tipo" name="tipo" required placeholder="Tipo de Noticia" id="exampleFormControlSelect1">
+                  <option>Politica</option>
+                  <option>Economica</option>
+                  <option>Cultural</option>
+                  <option>social</option>
+                  <option>Cientifica</option>
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Noticia</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="usuario.noticia" name="noticia" rows="11"></textarea>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <hr>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-warning w-25">
+                <i class="fa fa-save"></i>
+
+            
+               Guardar </button>
+
+            </div>
+
+
+
+
+
+        </form>
+
+
+
+    </div>
+</div>
